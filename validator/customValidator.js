@@ -31,7 +31,20 @@ const registerValidator= (req)=>{
         error:error
     }
 }
-
+const loginValidator=(req)=>{
+    let err={}
+    if(!req.body.email){
+        err.email="Email required !!!"
+    }
+    if(!req.body.password){
+        err.password="Password required !!!"
+    }
+    return{
+        isValid:Object.keys(err).length===0,
+        err:err
+    }
+}
 module.exports={
+    loginValidator,
     registerValidator
 }

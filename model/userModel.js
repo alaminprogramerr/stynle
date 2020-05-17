@@ -7,8 +7,16 @@ const userSchema=new Schema({
     phoneNumber:String,
     userType:String,
     address:String,
-    about:String
+    about:String,
+    password:String,
+    rating:Array
+    
+    
+    
+    
 })
+
+
 
 const userModel=mongoose.model('userModel',userSchema)
 module.exports =userModel
