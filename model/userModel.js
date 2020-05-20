@@ -10,10 +10,6 @@ const userSchema=new Schema({
     about:String,
     password:String,
     rating:Array
-    
-    
-    
-    
 })
 
 

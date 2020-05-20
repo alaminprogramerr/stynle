@@ -2,6 +2,7 @@ import React from "react";
 // react plugin used to create charts
 import { Line } from "react-chartjs-2";
 // reactstrap components
+import {Link} from 'react-router-dom'
 import {
   Button,
   Card,
@@ -27,7 +28,7 @@ import Footer from "components/Footer/Footer.jsx";
 
 import bigChartData from "variables/charts.jsx";
 
-class LandingPage extends React.Component {
+class Home extends React.Component {
   componentDidMount() {
     document.body.classList.toggle("landing-page");
   }
@@ -120,6 +121,20 @@ class LandingPage extends React.Component {
                       >
                         <i className="fab fa-facebook" />
                       </Button>
+                    </div>
+                    <div>
+
+
+
+
+
+                      <Link to="/terms?id=id&user=client"><Button>I Want to Hire</Button></Link> 
+                      <Link to="/terms?id=id&user=seller"><Button>I Want to Provide Service</Button></Link> 
+
+
+
+
+
                     </div>
                   </div>
                 </Col>
@@ -547,11 +562,10 @@ class LandingPage extends React.Component {
               </Row>
             </Container>
           </section>
-          <Footer />
         </div>
       </>
     );
   }
 }
 
-export default LandingPage;
+export default Home;

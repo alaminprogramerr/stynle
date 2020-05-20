@@ -10,3 +10,6 @@ router.get('/welcome',(req,res)=>{
 
 router.post('/register',userController.register)
 router.post('/login',userController.login)
+router.get('single-user/:id',userController.getSingleUser)
+
+module.exports=router
