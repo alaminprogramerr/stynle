@@ -154,6 +154,9 @@ class PagesNavbar extends React.Component {
                 <NavLink tag={Link} to="/">
                   Back to Home
                 </NavLink>
+                <NavLink tag={Link} to="/login">
+                  Sign in
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

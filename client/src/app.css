@@ -1,3 +1,6 @@
 .fixed-top {
     height: 100px;
 }
+.fixed-plugin{
+    cursor: pointer;
+}

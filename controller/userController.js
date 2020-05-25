@@ -68,7 +68,7 @@ const login=(req,res)=>{
                 email:user.email,
                 phoneNumber:user.phoneNumber,
                 userType:user.userType,
-            },'secret',{expiresIn:'4h'})
+            },'st_app',{expiresIn:'4h'})
             
             return res.status(200).json({token:token})
         })
@@ -86,8 +86,19 @@ const getSingleUser=(req,res)=>{
         return res.status(500).json({massage:"Server error occurd "})
     })
 }
+const getAllUser=(req,res)=>{
+    userModel.find()
+    .then(users=>{
+        res.status(200).json(users)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({massage:'server error occurd '})
+    })
+}
 
 module.exports={
+    getAllUser,
     getSingleUser,
     register,
     login

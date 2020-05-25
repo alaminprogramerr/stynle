@@ -84,7 +84,7 @@ class LoginPage extends React.Component {
     .then(res=>{
       console.log(res.data)
       window.localStorage.setItem('st_app',res.data.token)
-      window.location.href='/dashboard'
+      window.location.href='/admin/dashboard'
     })
     .catch(err=>{
       console.log(err.response.data)

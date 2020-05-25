@@ -26,8 +26,11 @@ function TermsAndCondition() {
     return (
         <div className="col-md-6 offset-md-3 " style={{marginTop:'200px'}}>
             <Card>
-                <CardHeader>
+                <CardHeader className="d-flex">
                     <h2>Terms And Condition</h2>
+                    <Link className="ml-auto"  to='/'>
+                        <Button size="sm" color="success" >Back</Button>
+                    </Link>
                 </CardHeader>
                 <CardBody>
                     <p style={{fontSize:'15px',textAlign:'justify'}}>

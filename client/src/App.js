@@ -23,16 +23,19 @@ import Home from "./views/OuterPages/Home";
 import Register from "./views/OuterPages/Register";
 import Login from './views/OuterPages/LoginPage'
 import TermsAndCondition from './views/OuterPages/TermsAndCondition'
+import ProtectedRoute from './ProtectedRoute'
+import PublicRoute from './PublicRoute'
 
 const App = ()=>{
   return(
   <BrowserRouter>
     <Switch>
-      <Route path="/dashboard" render={props => <AdminLayout {...props} />} />
-      <Route path="/home" render={props => <Home {...props} />} />
-      <Route path="/login" render={props => <Login {...props} />} />
-      <Route path="/register" render={props => <Register {...props} />} />
-      <Route path="/terms" render={props => <TermsAndCondition {...props} />} />
+      {/* <Route path="/admin" render={props => <AdminLayout {...props} />} /> */}
+      <ProtectedRoute path="/admin" component={AdminLayout} />} />
+      <PublicRoute path="/home" component={Home} />} />
+      <PublicRoute path="/login" component={Login} />} />
+      <PublicRoute path="/register" component={Register} />} />
+      <PublicRoute path="/terms" component={TermsAndCondition} />} />
 
       
 
