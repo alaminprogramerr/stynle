@@ -36,9 +36,6 @@ const App = ()=>{
       <PublicRoute path="/login" component={Login} />} />
       <PublicRoute path="/register" component={Register} />} />
       <PublicRoute path="/terms" component={TermsAndCondition} />} />
-
-      
-
       <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>

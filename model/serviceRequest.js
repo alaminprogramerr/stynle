@@ -4,14 +4,16 @@ const Schema=mongoose.Schema
 const serviceRequest=new Schema({
     category:String,
     price:String,
-    serviceRquest:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'userModel'
-        }
-    ]
-})
-
-
-
+    seller: {
+        type: Schema.Types.ObjectId,
+        ref: 'userModel'
+    },
+    client: {
+        type: Schema.Types.ObjectId,
+        ref: 'userModel'
+    },
+    read:Boolean,
+    accept:Boolean,
+    document:String
+},{timestamps:true})
 module.exports =mongoose.model('serviceRequestModel',serviceRequest)

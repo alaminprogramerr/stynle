@@ -5,7 +5,6 @@ import classNames from "classnames";
 // react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
 import axios from "axios"
-
 // reactstrap components
 import {
   Button,

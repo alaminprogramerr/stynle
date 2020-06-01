@@ -1,6 +1,6 @@
 const validator=require('validator')
 const registerValidator= (req)=>{
-    const {name,email,phoneNumber,user,address,about,password,confirmPassword}=req.body
+    const {name,email,phoneNumber,userType,address,about,password,confirmPassword}=req.body
     let error={}
     console.log(req.body)
     if(!name){
@@ -14,8 +14,8 @@ const registerValidator= (req)=>{
     if(!phoneNumber){
         error.phoneNumber="Phone number required !!"
     }
-    if(!user){
-        error.user="Select your type !!"
+    if(!userType){
+        error.userType="Select your type !!"
     }
     if(!address){
         error.address="Address required !!"
@@ -52,7 +52,28 @@ const loginValidator=(req)=>{
         err:err
     }
 }
+const serviceValidator=(req)=>{
+    const {category,price,seller,client}=req.body
+   let err={}
+    if(!category){
+        err.category="Category required"
+    }         
+    if(!price){
+        err.price="Price required"
+    }
+   if(!seller){
+    err.seller="Seller ID required"
+    }
+   if(!client){
+       seller.client="Client ID required"
+   }
+   return{
+       isValid:Object.keys(err).length===0,
+       err:err
+   }
+}
 module.exports={
     loginValidator,
-    registerValidator
+    registerValidator,
+    serviceValidator
 }

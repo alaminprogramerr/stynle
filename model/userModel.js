@@ -9,13 +9,8 @@ const userSchema=new Schema({
     address:String,
     about:String,
     password:String,
-    rating:Array,
-    serviceRquest:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'serviceRequestModel'
-        }
-    ]
+    rating:[],
+    serviceRequest: []
 })
 
 
