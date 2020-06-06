@@ -25,6 +25,7 @@ import Login from './views/OuterPages/LoginPage'
 import TermsAndCondition from './views/OuterPages/TermsAndCondition'
 import ProtectedRoute from './ProtectedRoute'
 import PublicRoute from './PublicRoute'
+import SellerProfileViewer from './deshbord/views/SellerProfileViewer'
 
 const App = ()=>{
   return(
@@ -32,6 +33,7 @@ const App = ()=>{
     <Switch>
       {/* <Route path="/admin" render={props => <AdminLayout {...props} />} /> */}
       <ProtectedRoute path="/admin" component={AdminLayout} />} />
+      <ProtectedRoute path="/seller/sellerProfile" component={SellerProfileViewer} />} />
       <PublicRoute path="/home" component={Home} />} />
       <PublicRoute path="/login" component={Login} />} />
       <PublicRoute path="/register" component={Register} />} />

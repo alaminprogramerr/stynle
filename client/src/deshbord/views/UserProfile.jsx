@@ -16,6 +16,13 @@ import {
 } from "reactstrap";
 
 class UserProfile extends React.Component {
+
+
+  logout=()=>{
+    localStorage.removeItem('st_app')
+    window.location.href='/home'
+  }
+  
   render() {
     return (
       <>
@@ -171,6 +178,7 @@ class UserProfile extends React.Component {
                   </div>
                 </CardBody>
                 <CardFooter>
+
                   <div className="button-container">
                     <Button className="btn-icon btn-round" color="facebook">
                       <i className="fab fa-facebook" />
@@ -181,6 +189,9 @@ class UserProfile extends React.Component {
                     <Button className="btn-icon btn-round" color="google">
                       <i className="fab fa-google-plus" />
                     </Button>
+                  </div>
+                  <div className="text-center">
+                    <Button color="danger" size="sm" onClick={this.logout}>Log Out</Button>
                   </div>
                 </CardFooter>
               </Card>

@@ -15,5 +15,6 @@ router.get('/getUser',(req,res)=>{
 router.post('/register',userController.register)
 router.post('/login',userController.login)
 router.get('single-user/:id',userController.getSingleUser)
+router.get('/all-seller',userController.allSeller)
 
 module.exports=router

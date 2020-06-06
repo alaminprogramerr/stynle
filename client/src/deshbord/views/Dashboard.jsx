@@ -5,6 +5,8 @@ import classNames from "classnames";
 // react plugin used to create charts
 import { Line, Bar } from "react-chartjs-2";
 import axios from "axios"
+import './onlinedot.css'
+import {Link} from 'react-router-dom'
 // reactstrap components
 import {
   Button,
@@ -33,11 +35,14 @@ chartExample2,
 chartExample3,
 chartExample4
 } from '../variables/charts'
+import OnlineDot from './OnlineDot'
+import Axios from "axios";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bigChartData: "data1"
+      bigChartData: "data1",
+      onlineSeller:[]
     };
   }
   setBgChartData = name => {
@@ -54,15 +59,76 @@ class Dashboard extends React.Component {
       console.log(err)
     })
   }
+  componentDidMount(){
+    Axios.get('/all-seller')
+    .then(res=>{
+      this.setState({
+        onlineSeller:res.data
+      })
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
   render() {
     return (
       <>
         <div className="content">
           <Row>
+            <Col lg="6" md="12">
+              <Card className="card-tasks">
+                <CardHeader>
+                  <h3 className="title d-inline">Find Seller</h3>
+                </CardHeader>
+                <CardBody>
+                  <div className="table-full-width table-responsive">
+                    <Table>
+                      <tbody>
+                        {
+                          this.state.onlineSeller.map(single=>{
+                            return(
+                              <tr>
+                                <td>
+                                  <p className="title">  {single.name} <OnlineDot/> </p>
+                                  <p className="text-muted">
+                                   Skill : JavaScript, Node Js , React , Angular, Vue
+                                  </p>
+                                </td>
+                                <td className="td-actions text-right">
+                                  <Button
+                                    color="link"
+                                    id="tooltip636901683"
+                                    title=""
+                                    type="button"
+                                  >
+                                    <Link to={`/seller/sellerProfile/${single._id}`}>Go To Profile</Link>
+                                  </Button>
+                                  <Button
+                                    color="link"
+                                    id="tooltip636901683"
+                                    title=""
+                                    type="button"
+                                  >
+                                    <Link to=''>Hire me</Link>
+                                  </Button>
+                                </td>
+                              </tr>
+                            )
+                          })
+                        }
+                      </tbody>
+                    </Table>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          
+        <div className="">
+          <Row>
             <Col xs="12">
               <Card className="card-chart">
                 <CardHeader>
-                  <Button className="btn-info" color="info" onClick={this.redirector}>Redicect</Button>
                   <Row>
                     <Col className="text-left" sm="6">
                       <h5 className="card-category">Total Shipments</h5>
@@ -545,6 +611,7 @@ class Dashboard extends React.Component {
               </Card>
             </Col>
           </Row>
+        </div>
         </div>
       </>
     );

@@ -1,0 +1,17 @@
+.onlinedot {
+    position: relative;
+    /* right: 5px; */
+    align-items: center;
+    /* top: 47%; */
+    left: 14px;
+}
+.dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgb(0, 128, 0);
+    border-radius: 100%;
+    align-items: center;
+    left: -10px;
+    top: 3px;
+}

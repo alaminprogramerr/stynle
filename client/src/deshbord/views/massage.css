@@ -1,0 +1,65 @@
+.userListComponent{
+    border-right: 2px solid dimgray;
+    height: 100%;
+}
+.chatComponent{
+    height: 100%;
+}
+.usreListItem:hover {
+    cursor: pointer;
+    background: #353850;
+}
+.userListItemSub{
+    display: flex !important;
+    align-items: center;
+}
+
+.secondPersonText {
+    color: white;
+    max-width: 70%;
+    background: rgb(90, 92, 115);
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 10px;
+    float: left;
+    margin: 10px 0px;
+}
+.firstPersonText {
+    margin: 10px 0px;
+    color: white;
+    max-width: 70%;
+    background: #3d71f6;
+    display: inline-block;
+    float: right;
+    padding: 3px 12px;
+    border-radius: 10px;
+}
+.massageContainer{
+    width: 100%;
+    overflow: hidden;
+}
+.timeColor{
+    color:#848484 !important
+}
+.massageContainer{
+    position: relative;
+}
+.massageInput{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+.massageInput input{
+    padding: 5px 18px;
+    border-radius: 20px;
+    border: 1px solid #cd23b2 !important;
+}
+.sentIcon{
+    cursor: pointer;
+    min-width: 50px;
+    text-align: center;
+}

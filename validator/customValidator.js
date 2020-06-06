@@ -1,6 +1,6 @@
 const validator=require('validator')
 const registerValidator= (req)=>{
-    const {name,email,phoneNumber,userType,address,about,password,confirmPassword}=req.body
+    const {name,email,phoneNumber,address,about,password,confirmPassword}=req.body
     let error={}
     console.log(req.body)
     if(!name){
@@ -13,9 +13,6 @@ const registerValidator= (req)=>{
     }
     if(!phoneNumber){
         error.phoneNumber="Phone number required !!"
-    }
-    if(!userType){
-        error.userType="Select your type !!"
     }
     if(!address){
         error.address="Address required !!"

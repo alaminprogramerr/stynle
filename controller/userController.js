@@ -8,6 +8,7 @@ const jwt=require('jsonwebtoken')
 
 
 const register=(req,res)=>{
+    console.log(req.body)
     console.log('request comming !~~')
     const verify=customValidator.registerValidator(req)
     if(!verify.isValid){
@@ -27,13 +28,14 @@ const register=(req,res)=>{
                 name:req.body.name,
                 email:req.body.email,
                 phoneNumber:req.body.phoneNumber,
-                userType:req.body.userType,
+                userType:req.body.user,
                 address:req.body.address,
                 about:req.body.about,
                 password:hash
             }).save()
             .then(user=>{
                 console.log(user)
+                console.log('user registered')
                 res.status(200).json({massage:'Register successfull !!'})
             })
             .catch(error=>{
@@ -96,10 +98,22 @@ const getAllUser=(req,res)=>{
         res.status(500).json({massage:'server error occurd '})
     })
 }
+const  allSeller=(req,res)=>{
+    userModel.find({userType:'seller'})
+    .then(sellers=>{
+        res.status(200).json(sellers)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({massage:'server error occurd '})
+    })
+
+}
 
 module.exports={
     getAllUser,
     getSingleUser,
     register,
-    login
+    login,
+    allSeller
 }
